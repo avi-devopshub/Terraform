@@ -1,0 +1,21 @@
+data "aws_ami" "amazon_linux" {
+  most_recent = true
+  owners      = ["amazon"]
+  filter {
+    name   = "architecture"
+    values = ["arm64"]
+  }
+  filter {
+    name   = "name"
+    values = ["al2023-ami-2023*"]
+  }
+}
+
+resource "aws_instance" "my_ec2"{
+    ami = data.aws_ami.amazon_linux.id
+    key_name = var.key_name
+    instance_type = var.instance_type
+    tags = {
+        Name = var.tags
+    }
+}
