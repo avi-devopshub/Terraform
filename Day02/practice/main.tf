@@ -13,9 +13,14 @@ data "aws_ami" "amazon_linux" {
 
 resource "aws_instance" "my_ec2"{
     ami = data.aws_ami.amazon_linux.id
-    key_name = var.key_name
+    key_name = aws_key_pair.custom_key.key_name
     instance_type = var.instance_type
     tags = {
         Name = var.tags
     }
+}
+
+resource "aws_key_pair" "custom_key" {
+  key_name   = "my-custom-key"
+  public_key = file("/root/.ssh/id_ed25519.pub")
 }
