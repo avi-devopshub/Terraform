@@ -1,9 +1,3 @@
-variable "mysource" {
-    default = "hashicorp/aws"
-}
-variable "myversion" {
-    default = "6.62.0"
-}
 variable "region" {
     default = "ap-south-1"
 }
