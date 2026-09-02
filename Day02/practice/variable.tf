@@ -1,7 +1,7 @@
-variable "source" {
+variable "mysource" {
     default = "hashicorp/aws"
 }
-variable "version" {
+variable "myversion" {
     default = "6.62.0"
 }
 variable "region" {

@@ -1,8 +1,8 @@
 terraform {
   required_providers {
     aws = {
-      source  = var.source
-      version = var.version
+      source  = var.mysource
+      version = var.myversion
     }
   }
 }
